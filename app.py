@@ -56,7 +56,7 @@ def webhook():
 
 #Now the processRequest method is where you'll get most of your work done ;-)
 def processRequest(req):
-job = req['job']
+    job = req['job']
 
     if job == "create_asset":
         serialnumber = req['serialnumber']

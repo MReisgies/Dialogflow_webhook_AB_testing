@@ -56,12 +56,19 @@ def webhook():
 
 #Now the processRequest method is where you'll get most of your work done ;-)
 def processRequest(req):
-    testdata = req['request']
-    returnstring = "Hello World " + testdata
+job = req['job']
 
-    return {
-        "response": returnstring
-    }
+    if job == "create_asset":
+        serialnumber = req['serialnumber']
+        #some code to access EH API
+
+        return {
+            "response": "Asset was created: " + serialnumber
+        }
+    else:
+        return {
+            "response": "error"
+        }
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
